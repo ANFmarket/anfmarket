@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lando's Garage</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fa;
+    color:#1f2328;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+    background:#ffffff;
+    padding:16px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+    border-bottom:1px solid #dfe5eb;
+
+    position:sticky;
+    top:0;
+    z-index:30;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:-1px;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#0067c0;
+}
+
+
+/* ==========================================
+   BUSCADOR
+========================================== */
+
+.search{
+    flex:1;
+    max-width:560px;
+    display:flex;
+    background:#f3f6f9;
+    border:1px solid #d9e0e7;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    padding:13px 16px;
+    font-size:15px;
+}
+
+.search button{
+    border:none;
+    background:#0067c0;
+    color:white;
+    padding:0 22px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+
+/* ==========================================
+   MENU SUPERIOR
+========================================== */
+
+.top-categories{
+    background:#ffffff;
+    border-bottom:1px solid #e2e6ea;
+
+    padding:11px 6%;
+
+    display:flex;
+    justify-content:center;
+    gap:9px;
+
+    overflow-x:auto;
+
+    position:sticky;
+    top:74px;
+    z-index:25;
+}
+
+.top-categories button{
+    border:1px solid #d8dee5;
+    background:#ffffff;
+    color:#31363b;
+
+    padding:9px 15px;
+
+    border-radius:9px;
+
+    font-size:13px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
+    transition:.2s;
+}
+
+.top-categories button:hover{
+    background:#eef6fd;
+    border-color:#0067c0;
+    color:#0067c0;
+}
+
+.top-categories button.active{
+    background:#0067c0;
+    color:white;
+    border-color:#0067c0;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero{
+    margin:32px 6% 20px;
+
+    background:white;
+
+    border:1px solid #dfe5eb;
+    border-radius:24px;
+
+    overflow:hidden;
+
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+
+    min-height:390px;
+
+    box-shadow:0 14px 40px rgba(30,45,60,.08);
+}
+
+.hero-left{
+    padding:60px 52px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #ffffff,
+        #f3f7fb
+    );
+}
+
+.hero-label{
+    display:inline-block;
+
+    width:max-content;
+
+    background:#eaf3fb;
+    color:#0067c0;
+
+    font-size:12px;
+    font-weight:700;
+
+    padding:8px 13px;
+
+    border-radius:20px;
+
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(43px,6vw,70px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    font-weight:650;
+
+    margin-bottom:24px;
+}
+
+.hero h1 span{
+    color:#0067c0;
+}
+
+.hero p{
+    font-size:17px;
+
+    color:#646b73;
+
+    line-height:1.65;
+
+    max-width:550px;
+
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:14px 24px;
+
+    border-radius:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.primary-btn{
+    border:none;
+    background:#0067c0;
+    color:white;
+}
+
+.secondary-btn{
+    border:1px solid #ccd5de;
+    background:white;
+    color:#25292d;
+}
+
+
+/* ==========================================
+   HERO DERECHA
+========================================== */
+
+.hero-right{
+    background:linear-gradient(
+        135deg,
+        #0f3655,
+        #0067c0
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:45px;
+}
+
+.hero-art{
+    width:100%;
+    max-width:470px;
+
+    min-height:280px;
+
+    border-radius:24px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.04)
+    );
+
+    border:1px solid rgba(255,255,255,.28);
+
+    color:white;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:40px;
+}
+
+.hero-art small{
+    font-size:12px;
+    letter-spacing:2px;
+    opacity:.8;
+    margin-bottom:12px;
+}
+
+.hero-art strong{
+    font-size:42px;
+    line-height:1.05;
+    letter-spacing:-1.5px;
+}
+
+.hero-art span{
+    margin-top:15px;
+    opacity:.8;
+}
+
+
+/* ==========================================
+   INFORMACION
+========================================== */
+
+.info-strip{
+    margin:0 6%;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:14px;
+}
+
+.info-box{
+    background:white;
+
+    border:1px solid #dfe5eb;
+
+    border-radius:16px;
+
+    padding:18px 20px;
+}
+
+.info-box strong{
+    display:block;
+
+    color:#0067c0;
+
+    font-size:13px;
+
+    margin-bottom:5px;
+}
+
+.info-box span{
+    color:#626970;
+
+    font-size:14px;
+}
+
+
+/* ==========================================
+   SECCIONES
+========================================== */
+
+section{
+    padding:40px 6%;
+}
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:28px;
+}
+
+.section-title h2{
+    font-size:32px;
+
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#747b82;
+}
+
+
+/* ==========================================
+   CATEGORIAS
+========================================== */
+
+.categories{
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    gap:14px;
+}
+
+.category{
+    border:1px solid #dfe5eb;
+
+    border-radius:18px;
+
+    background:white;
+
+    padding:22px 15px;
+
+    min-height:115px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    font-size:16px;
+    font-weight:700;
+
+    color:#25292d;
+
+    text-align:left;
+}
+
+.category-icon{
+    font-size:27px;
+
+    margin-bottom:15px;
+}
+
+.category:hover{
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(30,45,60,.10);
+}
+
+.category.active{
+    border:2px solid #0067c0;
+
+    background:#eef6fd;
+
+    color:#0067c0;
+}
+
+
+/* ==========================================
+   FILTRO
+========================================== */
+
+.filter-status{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+    padding:14px 18px;
+
+    background:white;
+
+    border:1px solid #dfe5eb;
+
+    border-radius:14px;
+
+    gap:15px;
+}
+
+.filter-status strong{
+    color:#0067c0;
+}
+
+.clear-filter{
+    border:none;
+
+    background:#eef3f8;
+
+    color:#0067c0;
+
+    border-radius:9px;
+
+    padding:9px 15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+/* ==========================================
+   GRID PRODUCTOS
+========================================== */
+
+.products{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+}
+
+
+/* ==========================================
+   SEPARACION ESCALAS
+========================================== */
+
+.scale-divider{
+    grid-column:1 / -1;
+
+    background:linear-gradient(
+        90deg,
+        #0f3655,
+        #0067c0
+    );
+
+    color:white;
+
+    border-radius:14px;
+
+    padding:17px 22px;
+
+    margin-top:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 6px 18px rgba(0,103,192,.14);
+}
+
+.scale-divider strong{
+    font-size:21px;
+
+    letter-spacing:.3px;
+}
+
+.scale-divider span{
+    font-size:13px;
+
+    opacity:.82;
+}
+
+
+/* ==========================================
+   TARJETA PRODUCTO
+========================================== */
+
+.product{
+    background:white;
+
+    border:1px solid #dfe5eb;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.2s;
+
+    box-shadow:0 4px 14px rgba(30,45,60,.05);
+}
+
+.product:hover{
+    transform:translateY(-4px);
+
+    box-shadow:0 14px 30px rgba(30,45,60,.10);
+}
+
+.product-image{
+    width:100%;
+
+    height:235px;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#edf1f5;
+}
+
+.product-info{
+    padding:18px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    background:#e8f2fb;
+
+    color:#0067c0;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+}
+
+.badge.used{
+    background:#eef0f2;
+
+    color:#5f666d;
+}
+
+.product h3{
+    font-size:18px;
+
+    line-height:1.3;
+
+    margin-bottom:8px;
+}
+
+.product p{
+    color:#747b82;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    margin-bottom:14px;
+
+    min-height:42px;
+}
+
+.price{
+    font-size:24px;
+
+    font-weight:750;
+
+    color:#0067c0;
+
+    margin-bottom:15px;
+}
+
+.product button{
+    width:100%;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    background:#0067c0;
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.product button:hover{
+    background:#005ba9;
+}
+
+
+/* ==========================================
+   SIN PRODUCTOS
+========================================== */
+
+.no-products{
+    display:none;
+
+    background:white;
+
+    border:1px solid #dfe5eb;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    padding:55px 20px;
+
+    color:#70767c;
+}
+
+.no-products h3{
+    color:#25292d;
+
+    font-size:24px;
+
+    margin-bottom:8px;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+    margin-top:45px;
+
+    background:white;
+
+    border-top:1px solid #dfe5eb;
+
+    padding:42px 6%;
+
+    text-align:center;
+}
+
+footer h2 span{
+    color:#0067c0;
+}
+
+footer p{
+    color:#6f767d;
+
+    margin-top:8px;
+}
+
+
+/* ==========================================
+   WHATSAPP
+========================================== */
+
+.whatsapp{
+    position:fixed;
+
+    right:24px;
+
+    bottom:24px;
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:18px;
+
+    background:#0067c0;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:24px;
+
+    box-shadow:0 10px 28px rgba(0,103,192,.25);
+
+    z-index:40;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1150px){
+
+    .categories{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:850px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .info-strip{
+        grid-template-columns:1fr;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .top-categories{
+        justify-content:flex-start;
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        flex-wrap:wrap;
+    }
+
+    .search{
+        width:100%;
+        max-width:none;
+    }
+
+    .top-categories{
+        top:125px;
+
+        padding-left:4%;
+
+        padding-right:4%;
+    }
+
+    .hero{
+        margin:20px 4%;
+    }
+
+    .hero-left{
+        padding:40px 25px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero-right{
+        padding:25px;
+    }
+
+    .hero-art strong{
+        font-size:32px;
+    }
+
+    .info-strip{
+        margin:0 4%;
+    }
+
+    section{
+        padding:30px 4%;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .scale-divider{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:5px;
+    }
+
+}
+
+
+/* ==========================================
+   GALERIA DE PRODUCTO
+========================================== */
+.product-image-wrap{position:relative;overflow:hidden}
+.product-image-wrap .product-image{cursor:pointer;width:100%}
+.photo-count{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.72);color:#fff;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:700;pointer-events:none}
+.gallery-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.9);align-items:center;justify-content:center;padding:20px}
+.gallery-modal.open{display:flex}
+.gallery-box{position:relative;width:min(920px,96vw);max-height:94vh;text-align:center}
+.gallery-main{max-width:100%;max-height:78vh;object-fit:contain;border-radius:12px;background:#111}
+.gallery-close,.gallery-prev,.gallery-next{position:absolute;border:0;background:rgba(0,0,0,.68);color:white;cursor:pointer;border-radius:999px;display:flex;align-items:center;justify-content:center}
+.gallery-close{right:8px;top:8px;width:42px;height:42px;font-size:25px}
+.gallery-prev,.gallery-next{top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:30px}
+.gallery-prev{left:8px}.gallery-next{right:8px}
+.gallery-caption{color:#fff;margin-top:10px;font-weight:700}
+.gallery-dots{color:#ddd;margin-top:4px;font-size:13px}
+
+
+/* LANDO'S GARAGE · MOVIMIENTO ELEGANTE */
+.hero-copy-stage{display:grid;grid-template-areas:"stage";min-height:235px;align-items:center}
+.hero-slide{grid-area:stage;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .72s ease,transform .72s cubic-bezier(.2,.8,.2,1)}
+.hero-slide.active{opacity:1;transform:translateY(0);pointer-events:auto}
+.hero-slide h1{margin-bottom:24px}
+.hero-slide p{margin-bottom:0}
+.category,.product{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.category:hover,.product:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(20,40,60,.10)}
+.product:hover .product-image{transform:scale(1.018)}
+.product-image{transition:transform .35s ease}
+header{transition:padding .25s ease,box-shadow .25s ease}
+header.compact{box-shadow:0 7px 22px rgba(20,40,60,.08)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:800px){.hero-copy-stage{min-height:300px}}
+@media(prefers-reduced-motion:reduce){.hero-slide,.category,.product,.product-image,.reveal{transition:none!important;transform:none!important}.reveal{opacity:1}}
+
+
+/* OPINIONES DE CLIENTES */
+.reviews-section{padding:72px 20px;background:#f7f9fb}
+.reviews-wrap{max-width:920px;margin:auto}
+.reviews-card{background:#fff;border:1px solid #e5e9ee;border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(20,40,60,.06)}
+.rating-picker{display:flex;gap:7px;margin:12px 0 20px}
+.rating-picker button{border:0;background:transparent;padding:0;font-size:31px;line-height:1;color:#c9ced4;cursor:pointer;transition:transform .18s ease,color .18s ease}
+.rating-picker button.selected{color:#f5b301}.rating-picker button:hover{transform:scale(1.1)}
+.review-form{display:grid;gap:14px}.review-form input,.review-form textarea{width:100%;box-sizing:border-box;border:1px solid #d9dfe6;border-radius:12px;padding:13px 15px;font:inherit;background:#fff}
+.review-form textarea{min-height:110px;resize:vertical}.review-form input:focus,.review-form textarea:focus{outline:2px solid rgba(0,103,192,.16);border-color:#0067c0}
+.review-note{font-size:13px;color:#69727d;margin:0}.review-message{display:none;margin-top:14px;padding:12px 14px;border-radius:10px;background:#eef6ff;color:#174a72;font-weight:700}
+@media(max-width:600px){.reviews-section{padding:52px 16px}.reviews-card{padding:21px}}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        LANDO’S <span>GARAGE</span>
+    </div>
+
+    <div class="search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Buscar productos..."
+        >
+
+        <button onclick="buscar()">
+            ⌕
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ==========================================
+     MENU SUPERIOR
+========================================== -->
+
+<nav class="top-categories">
+
+    <button
+        class="top-category active"
+        data-filter="todos"
+        onclick="filtrarCategoria('todos')">
+
+        Todos
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="tmnt"
+        onclick="filtrarCategoria('tmnt')">
+
+        Tortugas Ninja
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="juguetes"
+        onclick="filtrarCategoria('juguetes')">
+
+        Juguetes
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="peluches"
+        onclick="filtrarCategoria('peluches')">
+
+        Peluches
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="autos"
+        onclick="filtrarCategoria('autos')">
+
+        Autos a escala
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="gorras"
+        onclick="filtrarCategoria('gorras')">
+
+        Gorras
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="coleccionables"
+        onclick="filtrarCategoria('coleccionables')">
+
+        Coleccionables
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="electronica"
+        onclick="filtrarCategoria('electronica')">
+
+        Electrónica
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="varios"
+        onclick="filtrarCategoria('varios')">
+
+        Varios
+
+    </button>
+
+    <button
+        class="top-category"
+        data-filter="refacciones"
+        onclick="filtrarCategoria('refacciones')">
+
+        Refacciones
+
+    </button>
+
+</nav>
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<div class="hero">
+
+    <div class="hero-left">
+
+        <div class="hero-copy-stage">
+            <div class="hero-slide active">
+                <div class="hero-label">STOCK ÚNICO · NUEVO Y USADO</div>
+                <h1>ENCUENTRA ALGO QUE <span>TE GUSTE</span></h1>
+                <p>Coleccionables, juguetes, electrónica, autos a escala, gorras, refacciones, varios y artículos únicos.</p>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-label">ALGO DIFERENTE</div>
+                <h1>ALGO NUEVO. <span>ALGO USADO.</span></h1>
+                <p>Tal vez justo eso que estabas buscando estaba esperando aquí.</p>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-label">PARA CURIOSOS Y COLECCIONISTAS</div>
+                <h1>COLECCIONABLES · JUGUETES <span>Y MUCHO MÁS</span></h1>
+                <p>Autos a escala, electrónica, peluches, refacciones y cosas que van apareciendo en el garage.</p>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-label">DATE UNA VUELTA</div>
+                <h1>TAL VEZ HOY <span>ENCUENTRES ALGO PARA TI</span></h1>
+                <p>Stock real. Si está publicado, está disponible.</p>
+            </div>
+        </div>
+
+        <div class="hero-buttons">
+            <button class="primary-btn" onclick="mostrarTodos()">VER PRODUCTOS</button>
+            <button class="secondary-btn" onclick="contactarWhatsApp()">CONTACTAR</button>
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="hero-art">
+            <small>LANDO’S GARAGE</small>
+            <strong>NUNCA SABES QUÉ<br>VAS A ENCONTRAR.</strong>
+            <span>Productos nuevos y usados</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     INFORMACION
+========================================== -->
+
+<div class="info-strip">
+
+    <div class="info-box">
+
+        <strong>
+            STOCK ÚNICO
+        </strong>
+
+        <span>
+
+            Los productos publicados son las piezas disponibles.
+            No contamos con existencias adicionales.
+
+        </span>
+
+    </div>
+
+    <div class="info-box">
+
+        <strong>
+            NUEVO + USADO
+        </strong>
+
+        <span>
+
+            El estado se indica en cada artículo.
+
+        </span>
+
+    </div>
+
+    <div class="info-box">
+
+        <strong>
+            COMPRA DIRECTA
+        </strong>
+
+        <span>
+
+            Contacto directo por WhatsApp.
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     CATEGORIAS
+========================================== -->
+
+<section id="categorias">
+
+    <div class="section-title">
+
+        <h2>
+            Explora por categoría
+        </h2>
+
+        <p>
+            Selecciona qué quieres ver.
+        </p>
+
+    </div>
+
+    <div class="categories">
+
+        <button
+            class="category active"
+            data-filter="todos"
+            onclick="filtrarCategoria('todos')">
+
+            <div class="category-icon">
+                ▦
+            </div>
+
+            Todos
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="tmnt"
+            onclick="filtrarCategoria('tmnt')">
+
+            <div class="category-icon">
+                🐢
+            </div>
+
+            Tortugas Ninja
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="juguetes"
+            onclick="filtrarCategoria('juguetes')">
+
+            <div class="category-icon">
+                🧸
+            </div>
+
+            Juguetes
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="peluches"
+            onclick="filtrarCategoria('peluches')">
+
+            <div class="category-icon">
+                🧸
+            </div>
+
+            Peluches
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="autos"
+            onclick="filtrarCategoria('autos')">
+
+            <div class="category-icon">
+                🚗
+            </div>
+
+            Autos a escala
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="gorras"
+            onclick="filtrarCategoria('gorras')">
+
+            <div class="category-icon">
+                🧢
+            </div>
+
+            Gorras
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="coleccionables"
+            onclick="filtrarCategoria('coleccionables')">
+
+            <div class="category-icon">
+                ✍️
+            </div>
+
+            Coleccionables
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="electronica"
+            onclick="filtrarCategoria('electronica')">
+
+            <div class="category-icon">⚡</div>
+            Electrónica
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="varios"
+            onclick="filtrarCategoria('varios')">
+
+            <div class="category-icon">📦</div>
+            Varios
+
+        </button>
+
+        <button
+            class="category"
+            data-filter="refacciones"
+            onclick="filtrarCategoria('refacciones')">
+
+            <div class="category-icon">
+                🔧
+            </div>
+
+            Refacciones
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PRODUCTOS
+========================================== -->
+
+<section id="productos">
+
+    <div class="section-title">
+
+        <h2>
+            Productos disponibles
+        </h2>
+
+        <p>
+            Lo publicado es lo que tenemos disponible.
+        </p>
+
+    </div>
+
+    <div class="filter-status">
+
+        <div>
+
+            Mostrando:
+
+            <strong id="filterName">
+                Todos los productos
+            </strong>
+
+        </div>
+
+        <button
+            class="clear-filter"
+            onclick="mostrarTodos()">
+
+            VER TODOS
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="products"
+        id="productGrid">
+    </div>
+
+
+    <div
+        class="no-products"
+        id="noProducts">
+
+        <h3>
+            Todavía no hay productos en esta categoría
+        </h3>
+
+        <p>
+            Pronto agregaremos artículos aquí.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     OPINIONES DE CLIENTES
+========================================== -->
+<section class="reviews-section" id="opiniones">
+  <div class="reviews-wrap">
+    <div class="section-title">
+      <h2>Opiniones de clientes</h2>
+      <p>Cuéntanos cómo fue tu experiencia con Lando’s Garage.</p>
+    </div>
+    <div class="reviews-card">
+      <h3>Deja tu calificación</h3>
+      <div class="rating-picker" id="ratingPicker" aria-label="Calificación de 1 a 5 estrellas">
+        <button type="button" data-rating="1" aria-label="1 estrella">★</button>
+        <button type="button" data-rating="2" aria-label="2 estrellas">★</button>
+        <button type="button" data-rating="3" aria-label="3 estrellas">★</button>
+        <button type="button" data-rating="4" aria-label="4 estrellas">★</button>
+        <button type="button" data-rating="5" aria-label="5 estrellas">★</button>
+      </div>
+      <form class="review-form" id="reviewForm">
+        <input id="reviewName" type="text" maxlength="60" placeholder="Tu nombre" required>
+        <textarea id="reviewText" maxlength="500" placeholder="Escribe tu comentario" required></textarea>
+        <input id="reviewRating" type="hidden" value="5">
+        <button class="primary-btn" type="submit">ENVIAR OPINIÓN</button>
+        <p class="review-note">Las opiniones se revisan antes de publicarse.</p>
+      </form>
+      <div class="review-message" id="reviewMessage">¡Gracias! Tu opinión quedó lista para revisión.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h2>
+
+        LANDO’S <span>GARAGE</span>
+
+    </h2>
+
+    <p>
+
+        Nunca sabes qué vas a encontrar · Productos nuevos y usados
+
+    </p>
+
+</footer>
+
+
+<a
+    class="whatsapp"
+    href="#"
+    onclick="contactarWhatsApp(); return false;"
+    title="Contactar por WhatsApp">
+
+    ☎
+
+</a>
+
+
+
+<div id="galleryModal" class="gallery-modal" onclick="cerrarGaleriaFondo(event)">
+    <div class="gallery-box">
+        <img id="galleryMain" class="gallery-main" src="" alt="">
+        <button class="gallery-close" onclick="cerrarGaleria()" aria-label="Cerrar">×</button>
+        <button id="galleryPrev" class="gallery-prev" onclick="cambiarFoto(-1)" aria-label="Anterior">‹</button>
+        <button id="galleryNext" class="gallery-next" onclick="cambiarFoto(1)" aria-label="Siguiente">›</button>
+        <div id="galleryCaption" class="gallery-caption"></div>
+        <div id="galleryDots" class="gallery-dots"></div>
+    </div>
+</div>
+
+<script>
+
+
+/* ==========================================
+   WHATSAPP
+========================================== */
+
+const telefonoWhatsApp="528111843539";
+
+
+/* ==========================================
+   INVENTARIO
+========================================== */
+
+const productos=[{"categoria":"tmnt","nombre":"TMNT Pizza Box 4-Pack","descripcion":"Set de 4 figuras The Loyal Subjects.","precio":"$1,300","estado":"NUEVO","imagen":"VENTAS ARTURO/tortugas-1.jpg","imagenes":["VENTAS ARTURO/tortugas-1.jpg","VENTAS ARTURO/tortugas-2.jpg"]},{"categoria":"tmnt","nombre":"TMNT Classic Foot Cruiser","descripcion":"Vehículo Classic Foot Cruiser de Playmates. Reedición moderna.","precio":"$1,800","estado":"NUEVO","imagen":"VENTAS ARTURO/tmnt-footcruiser-1.jpeg","imagenes":["VENTAS ARTURO/tmnt-footcruiser-1.jpeg","VENTAS ARTURO/tmnt-footcruiser-2.jpeg"]},{"categoria":"tmnt","nombre":"TMNT Classic Mutant Module","descripcion":"Classic Mutant Module. Reedición moderna.","precio":"$1,800","estado":"NUEVO","imagen":"VENTAS ARTURO/tmnt-module-1.jpeg","imagenes":["VENTAS ARTURO/tmnt-module-1.jpeg","VENTAS ARTURO/tmnt-module-2.jpeg"]},{"categoria":"tmnt","nombre":"NECA Shredder Battle Damaged","descripcion":"Figura coleccionable TMNT.","precio":"$400","estado":"NUEVO","imagen":"VENTAS ARTURO/tmnt-shredder-1.jpeg","imagenes":["VENTAS ARTURO/tmnt-shredder-1.jpeg","VENTAS ARTURO/tmnt-shredder-2.jpeg"]},{"categoria":"tmnt","nombre":"NECA The Wanderer","descripcion":"Figura coleccionable TMNT.","precio":"$400","estado":"NUEVO","imagen":"VENTAS ARTURO/tmnt-wanderer-1.jpeg","imagenes":["VENTAS ARTURO/tmnt-wanderer-1.jpeg","VENTAS ARTURO/tmnt-wanderer-2.jpeg"]},{"categoria":"tmnt","nombre":"Baxter Stockman","descripcion":"Figura coleccionable TMNT.","precio":"$400","estado":"NUEVO","imagen":"VENTAS ARTURO/tmnt-baxter.jpg","imagenes":["VENTAS ARTURO/tmnt-baxter.jpg","VENTAS ARTURO/tmnt-baxte2.jpg"]},{"categoria":"tmnt","nombre":"Shredder as Dracula","descripcion":"Universal Monsters x TMNT.","precio":"$400","estado":"NUEVO","imagen":"VENTAS ARTURO/tmnt-dracula-1.jpeg","imagenes":["VENTAS ARTURO/tmnt-dracula-1.jpeg","VENTAS ARTURO/tmnt-dracula-2.jpeg"]},{"categoria":"tmnt","nombre":"April O'Neil NECA","descripcion":"Figura coleccionable April O'Neil.","precio":"$400","estado":"NUEVO","imagen":"VENTAS ARTURO/tmnt-april-1.jpeg","imagenes":["VENTAS ARTURO/tmnt-april-1.jpeg","VENTAS ARTURO/tmnt-april-2.jpeg"]},{"categoria":"tmnt","nombre":"Raphael TMNT","descripcion":"Figura suelta de Raphael.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/tmnt-raphael-1.jpeg","imagenes":["VENTAS ARTURO/tmnt-raphael-1.jpeg"]},{"categoria":"gorras","nombre":"Gorra Gallo","descripcion":"Gorra usada.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/gorra-gallo.jpg","imagenes":["VENTAS ARTURO/gorra-gallo.jpg"]},{"categoria":"gorras","nombre":"Gorra Drop Shop","descripcion":"Gorra usada.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/gorra-drop-shop.jpeg","imagenes":["VENTAS ARTURO/gorra-drop-shop.jpeg"]},{"categoria":"gorras","nombre":"Gorra Show Elegance","descripcion":"Gorra usada.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/gorra-show-elegance.jpeg","imagenes":["VENTAS ARTURO/gorra-show-elegance.jpeg"]},{"categoria":"gorras","nombre":"Gorra AM","descripcion":"Gorra usada.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/gorra-am.jpeg","imagenes":["VENTAS ARTURO/gorra-am.jpeg"]},{"categoria":"gorras","nombre":"Gorra Batman","descripcion":"Gorra usada.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/gorra-batman.jpeg","imagenes":["VENTAS ARTURO/gorra-batman.jpeg"]},{"categoria":"gorras","nombre":"Gorra Flama","descripcion":"Gorra usada.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/gorra-flama.jpeg","imagenes":["VENTAS ARTURO/gorra-flama.jpeg"]},{"categoria":"gorras","nombre":"Gorra Refill New York","descripcion":"Gorra usada.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/gorra-refill-new-york.jpeg","imagenes":["VENTAS ARTURO/gorra-refill-new-york.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Van DHL 1:32","descripcion":"Auto a escala sin caja.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/132-dhl.jpeg","imagenes":["VENTAS ARTURO/132-dhl.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Corvette negro 1:32","descripcion":"Auto a escala sin caja.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/132-corvette-negro.jpeg","imagenes":["VENTAS ARTURO/132-corvette-negro.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Mercedes negro 1:32","descripcion":"Auto a escala sin caja.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/132-mercedes-negro.jpeg","imagenes":["VENTAS ARTURO/132-mercedes-negro.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Mercedes G-Class blanca 1:32","descripcion":"Auto a escala sin caja.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/132-gclass-blanca.jpeg","imagenes":["VENTAS ARTURO/132-gclass-blanca.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Trans Am negro 1:32","descripcion":"Auto a escala sin caja.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/132-transam-negro.jpeg","imagenes":["VENTAS ARTURO/132-transam-negro.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Maserati rojo 1:32","descripcion":"Auto a escala sin caja.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/132-maserati-rojo.jpeg","imagenes":["VENTAS ARTURO/132-maserati-rojo.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Porsche GT3 RS gris 1:32","descripcion":"Auto a escala sin caja.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/132-porsche-gt3-gris.jpeg","imagenes":["VENTAS ARTURO/132-porsche-gt3-gris.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Bumblebee 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-bumblebee.jpeg","imagenes":["VENTAS ARTURO/132-bumblebee.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"DeLorean Back to the Future 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-delorean.jpeg","imagenes":["VENTAS ARTURO/132-delorean.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Flintstones Flintmobile 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-flintstones.jpeg","imagenes":["VENTAS ARTURO/132-flintstones.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Volkswagen Bus 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-vw-bus.jpeg","imagenes":["VENTAS ARTURO/132-vw-bus.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Ecto-1 Ghostbusters 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-ecto1.jpeg","imagenes":["VENTAS ARTURO/132-ecto1.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"K.I.T.T. Knight Rider 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-kitt.jpeg","imagenes":["VENTAS ARTURO/132-kitt.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Jazz Porsche Transformers 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-jazz-porsche.jpeg","imagenes":["VENTAS ARTURO/132-jazz-porsche.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Jeep Jurassic Park 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-jeep-jurassic-1.jpeg","imagenes":["VENTAS ARTURO/132-jeep-jurassic-1.jpeg"]},{"categoria":"autos","escala":"1:32","nombre":"Mystery Machine Scooby-Doo 1:32","descripcion":"Auto a escala en caja.","precio":"$230","estado":"NUEVO","imagen":"VENTAS ARTURO/132-mystery-machine.jpeg","imagenes":["VENTAS ARTURO/132-mystery-machine.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Chevrolet Corvette Stingray dorado 1:24","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-01-1.jpeg","imagenes":["VENTAS ARTURO/124-01-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Mercedes-Benz S-Class blanco 1:24","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-02-1.jpeg","imagenes":["VENTAS ARTURO/124-02-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Toyota Supra MK4 blanco 1:24","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-03-1.jpeg","imagenes":["VENTAS ARTURO/124-03-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Bentley Continental GT blanco 1:24","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-04-1.jpeg","imagenes":["VENTAS ARTURO/124-04-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Dodge Challenger R/T rojo 1:24","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-05-1.jpeg","imagenes":["VENTAS ARTURO/124-05-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Plymouth GTX gris 1:24","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-06-1.jpeg","imagenes":["VENTAS ARTURO/124-06-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Chevrolet Monte Carlo rojo 1:24","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-07-1.jpeg","imagenes":["VENTAS ARTURO/124-07-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Auto escala 1:24 #08","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-08-1.jpeg","imagenes":["VENTAS ARTURO/124-08-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Auto escala 1:24 #09","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-09-1.jpeg","imagenes":["VENTAS ARTURO/124-09-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Auto escala 1:24 #10","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-10-1.jpeg","imagenes":["VENTAS ARTURO/124-10-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Auto escala 1:24 #11","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-11-1.jpeg","imagenes":["VENTAS ARTURO/124-11-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Auto escala 1:24 #12","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-12-1.jpeg","imagenes":["VENTAS ARTURO/124-12-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Auto escala 1:24 #13","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-13-1.jpeg","imagenes":["VENTAS ARTURO/124-13-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Auto escala 1:24 #14","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-14-1.jpeg","imagenes":["VENTAS ARTURO/124-14-1.jpeg"]},{"categoria":"autos","escala":"1:24","nombre":"Auto escala 1:24 #15","descripcion":"Auto a escala 1:24.","precio":"$400","estado":"USADO","imagen":"VENTAS ARTURO/124-15-1.jpeg","imagenes":["VENTAS ARTURO/124-15-1.jpeg"]},{"categoria":"coleccionables","nombre":"Arnold Schwarzenegger - Fotografía Autografiada 8x10","descripcion":"Fotografía autografiada 8x10, certificada por Golden Standard Certification. Certificado #12484 verificable en línea.","precio":"$1,400 · NEGOCIABLE","estado":"COLECCIONABLE","imagen":"VENTAS ARTURO/coleccionable-arnold-schwarzenegger-1.jpeg","imagenes":["VENTAS ARTURO/coleccionable-arnold-schwarzenegger-1.jpeg"]},{"categoria":"coleccionables","nombre":"Richard Dean Anderson - Fotografía Autografiada 8x10","descripcion":"Fotografía autografiada 8x10, autenticada por JSA (James Spence Authentication). Certificado #AP17560 verificable en línea.","precio":"$1,400 · NEGOCIABLE","estado":"COLECCIONABLE","imagen":"VENTAS ARTURO/coleccionable-richard-dean-anderson-1.jpeg","imagenes":["VENTAS ARTURO/coleccionable-richard-dean-anderson-1.jpeg","VENTAS ARTURO/coleccionable-richard-dean-anderson-2.jpeg"]},{"categoria":"coleccionables","nombre":"Bryan Cranston - Fotografía Autografiada 8x10","descripcion":"Fotografía autografiada 8x10 con autenticación verificable. Certificación #123882.","precio":"$1,400 · NEGOCIABLE","estado":"COLECCIONABLE","imagen":"VENTAS ARTURO/coleccionable-bryan-cranston-1.jpeg","imagenes":["VENTAS ARTURO/coleccionable-bryan-cranston-1.jpeg","VENTAS ARTURO/coleccionable-bryan-cranston-2.jpeg"]},{"categoria":"juguetes","nombre":"Hasbro / Kenner Classics The Real Ghostbusters Ecto-1 F1180","descripcion":"Vehículo Ecto-1 de The Real Ghostbusters, edición Hasbro / Kenner Classics. Con caja. Precio negociable.","precio":"$1,500 · NEGOCIABLE","estado":"NUEVO","imagen":"VENTAS ARTURO/ghostbusters-ecto1-hasbro-1.jpeg","imagenes":["VENTAS ARTURO/ghostbusters-ecto1-hasbro-1.jpeg","VENTAS ARTURO/ghostbusters-ecto1-hasbro-2.jpeg"]},{"categoria":"juguetes","nombre":"Bote Militar de Ataque","descripcion":"Vehículo de juguete tipo bote militar de ataque.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/bote-militar-1.jpeg","imagenes":["VENTAS ARTURO/bote-militar-1.jpeg","VENTAS ARTURO/bote-militar-2.jpeg"]},{"categoria":"juguetes","nombre":"Vehículo Militar Humvee","descripcion":"Vehículo militar de juguete tipo Humvee.","precio":"$100","estado":"USADO","imagen":"VENTAS ARTURO/vehiculo-militar-humvee-1.jpeg","imagenes":["VENTAS ARTURO/vehiculo-militar-humvee-1.jpeg","VENTAS ARTURO/vehiculo-militar-humvee-2.jpeg"]},{"categoria":"juguetes","nombre":"Tanque Militar Special Force","descripcion":"Tanque militar de juguete Special Force.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-001.jpg","imagenes":["imagenes/producto-002.jpg"]},{"categoria":"juguetes","nombre":"Masters of the Universe Revelation - Stinkor","descripcion":"Figura Stinkor de Masters of the Universe Revelation, Mattel.","precio":"$280","estado":"NUEVO","imagen":"VENTAS ARTURO/motu-stinkor-revelation-1.jpeg","imagenes":["VENTAS ARTURO/motu-stinkor-revelation-1.jpeg"]},{"categoria":"juguetes","nombre":"Jada Transformers - Bumblebee & Charlie Volkswagen Beetle","descripcion":"Set Jada Hollywood Rides de Transformers con Volkswagen Beetle Bumblebee y Charlie.","precio":"$700","estado":"NUEVO","imagen":"VENTAS ARTURO/transformers-bumblebee-charlie-jada-1.jpeg","imagenes":["VENTAS ARTURO/transformers-bumblebee-charlie-jada-1.jpeg","VENTAS ARTURO/transformers-bumblebee-charlie-jada-2.jpeg"]},{"categoria":"juguetes","nombre":"Jada Ghostbusters Ecto-1","descripcion":"Vehículo Ecto-1 de Ghostbusters, Jada Hollywood Rides.","precio":"$700","estado":"NUEVO","imagen":"VENTAS ARTURO/ghostbusters-ecto1-jada-1.jpeg","imagenes":["VENTAS ARTURO/ghostbusters-ecto1-jada-1.jpeg","VENTAS ARTURO/ghostbusters-ecto1-jada-2.jpeg"]},{"categoria":"juguetes","nombre":"Transformers Bumblebee Volkswagen Beetle Transformable","descripcion":"Figura transformable Bumblebee con modo robot y Volkswagen Beetle.","precio":"$500","estado":"USADO","imagen":"VENTAS ARTURO/transformers-bumblebee-suelto-1.jpeg","imagenes":["VENTAS ARTURO/transformers-bumblebee-suelto-1.jpeg","VENTAS ARTURO/transformers-bumblebee-suelto-2.jpeg"]},{"categoria":"refacciones","nombre":"Inyector VW 1.4 TSI","descripcion":"Inyector original VW. Nuevo. $1,300 c/u · Juego de 4 por $4,500.","precio":"$1,300 c/u","estado":"NUEVO","imagen":"VENTAS ARTURO/inyectores-14-tsi-1.jpeg","imagenes":["VENTAS ARTURO/inyectores-14-tsi-1.jpeg","VENTAS ARTURO/inyectores-14-tsi-2.jpeg"]},{"categoria":"refacciones","nombre":"Inyector VW 1.2 TSI","descripcion":"Inyector original VW usado. $800 c/u · Par por $1,400.","precio":"$800 c/u","estado":"USADO","imagen":"VENTAS ARTURO/inyectores-12-tsi-1.jpeg","imagenes":["VENTAS ARTURO/inyectores-12-tsi-1.jpeg","VENTAS ARTURO/inyectores-12-tsi-2.jpeg"]},{"categoria":"electronica","nombre":"Base giratoria eléctrica","descripcion":"Base giratoria eléctrica para exhibición o fotografía.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-003.jpg","imagenes":["imagenes/producto-004.jpg","imagenes/producto-005.jpg"]},{"categoria":"electronica","nombre":"SoundPEATS Air4 Pro","descripcion":"Audífonos inalámbricos SoundPEATS Air4 Pro con caja.","precio":"$300","estado":"NUEVO","imagen":"imagenes/producto-006.jpg","imagenes":["imagenes/producto-007.jpg","imagenes/producto-008.jpg"]},{"categoria":"electronica","nombre":"Audífonos HyperX con cable","descripcion":"Audífonos HyperX alámbricos.","precio":"$200","estado":"USADO","imagen":"imagenes/producto-009.jpg","imagenes":["imagenes/producto-010.jpg","imagenes/producto-011.jpg"]},{"categoria":"electronica","nombre":"Cámara de seguridad H.View inalámbrica","descripcion":"Cámara de seguridad H.View Wire-free Battery Security Camera con caja.","precio":"$400","estado":"NUEVO","imagen":"imagenes/producto-012.jpg","imagenes":["imagenes/producto-013.jpg","imagenes/producto-014.jpg"]},{"categoria":"electronica","nombre":"Nintendo Switch Lite Coral","descripcion":"Nintendo Switch Lite color coral con todos sus accesorios y estuche.","precio":"$1,700","estado":"USADO","imagen":"imagenes/producto-015.jpg","imagenes":["imagenes/producto-016.jpg","imagenes/producto-017.jpg"]},{"categoria":"electronica","nombre":"Fuente de poder PC 500W","descripcion":"Fuente de poder para PC de 500W.","precio":"$230","estado":"USADO","imagen":"imagenes/producto-018.jpg","imagenes":["imagenes/producto-019.jpg","imagenes/producto-020.jpg"]},{"categoria":"electronica","nombre":"Selector RCA / S-Video de 4 entradas","descripcion":"Selector de audio y video RCA / S-Video con 4 entradas.","precio":"$400","estado":"USADO","imagen":"imagenes/producto-021.jpg","imagenes":["imagenes/producto-022.jpg","imagenes/producto-023.jpg"]},{"categoria":"electronica","nombre":"FIFINE Gaming Streaming Microphone Kit","rotacion":-90,"descripcion":"Kit de micrófono FIFINE para gaming/streaming con brazo articulado. Con caja.","precio":"$1,380","estado":"NUEVO","imagen":"imagenes/producto-024.jpg","imagenes":["imagenes/producto-025.jpg","imagenes/producto-026.jpg"]},{"categoria":"juguetes","nombre":"HEXBUG Crab Robot","descripcion":"Robot HEXBUG Crab con empaque.","precio":"$200","estado":"NUEVO","imagen":"imagenes/producto-027.jpg","imagenes":["imagenes/producto-028.jpg"]},{"categoria":"peluches","nombre":"Set de 4 peluches Mini Brands / Foodie","descripcion":"Set de 4 peluchitos. Se venden juntos.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-029.jpg","imagenes":["imagenes/producto-030.jpg"]},{"categoria":"juguetes","nombre":"Lote de juegos electrónicos retro","descripcion":"Lote de juegos electrónicos retro. Se vende completo.","precio":"$400","estado":"USADO","imagen":"imagenes/producto-031.jpg","imagenes":["imagenes/producto-032.jpg","imagenes/producto-033.jpg"],"rotaciones":[0,0,-90,-90]},{"categoria":"juguetes","nombre":"Lote de figuras de acción","rotacion":-90,"descripcion":"Lote completo de figuras de acción. No se venden por separado.","precio":"$500","estado":"USADO","imagen":"imagenes/producto-034.jpg","imagenes":["imagenes/producto-035.jpg","imagenes/producto-036.jpg"]},{"categoria":"varios","nombre":"Filtro Kärcher KFI 3310 para aspiradora","descripcion":"Filtro de cartucho Kärcher KFI 3310 con caja.","precio":"$260","estado":"NUEVO","imagen":"imagenes/producto-037.jpg","imagenes":["imagenes/producto-038.jpg","imagenes/producto-039.jpg"]},{"categoria":"juguetes","nombre":"Lote de juguetes infantiles","descripcion":"Lote surtido de juguetes infantiles. Se vende completo.","precio":"$700","estado":"USADO","imagen":"imagenes/producto-040.jpg","imagenes":["imagenes/producto-041.jpg","imagenes/producto-042.jpg"]},{"categoria":"juguetes","nombre":"Funko Pop! Ichigo Kurosaki #212","descripcion":"Funko Pop! de Ichigo Kurosaki (Bleach), Special Edition #212, con caja.","precio":"$100","estado":"NUEVO","imagen":"imagenes/producto-043.jpg","imagenes":["imagenes/producto-044.jpg","imagenes/producto-045.jpg"]},{"categoria":"coleccionables","nombre":"Cuerno decorativo","descripcion":"Cuerno decorativo con detalles tallados y soporte/correa. Se vende tal como aparece en las fotografías.","precio":"$800","estado":"USADO","imagen":"imagenes/producto-046.jpg","imagenes":["imagenes/producto-047.jpg","imagenes/producto-048.jpg"],"rotaciones":[-90,-90,-90]},{"categoria":"varios","nombre":"Base / soporte para televisión Taika","descripcion":"Soporte Taika para televisión, con caja y accesorios mostrados en las fotografías.","precio":"$700","estado":"NUEVO","imagen":"imagenes/producto-049.jpg","imagenes":["imagenes/producto-050.jpg","imagenes/producto-051.jpg"],"rotaciones":[-90,0,0,0]},{"categoria":"electronica","nombre":"Adaptador / carcasa M.2 NVMe","descripcion":"Adaptador o carcasa para unidad M.2 / NVMe. Se entrega tal como se muestra en las fotografías.","precio":"$600","estado":"USADO","imagen":"imagenes/producto-052.jpg","imagenes":["imagenes/producto-053.jpg","imagenes/producto-054.jpg"]},{"categoria":"refacciones","nombre":"Cables de bujía Federal / Garlo","descripcion":"Juego de cables de bujía. Fotografías de los juegos Federal y Garlo disponibles.","precio":"$400","estado":"NUEVO","imagen":"imagenes/producto-055.jpg","imagenes":["imagenes/producto-056.jpg","imagenes/producto-057.jpg"]},{"categoria":"refacciones","nombre":"Bujías NGK Iridium IX","rotacion":-90,"descripcion":"Juego de 4 bujías NGK Iridium IX.","precio":"$800","estado":"NUEVO","imagen":"imagenes/producto-058.jpg","imagenes":["imagenes/producto-059.jpg","imagenes/producto-060.jpg"]},{"categoria":"refacciones","nombre":"Filtro de aire VIKA para Polo 1.2 TSI","descripcion":"Filtro de aire VIKA para motor 1.2 TSI, en este caso para Volkswagen Polo.","precio":"$100","estado":"NUEVO","imagen":"imagenes/producto-061.jpg","imagenes":["imagenes/producto-062.jpg","imagenes/producto-063.jpg"]},{"categoria":"refacciones","nombre":"Regulador de voltaje para alternador","descripcion":"Regulador de voltaje para alternador. Se vende tal como se muestra en la fotografía.","precio":"$100","estado":"NUEVO","imagen":"imagenes/producto-064.jpg","imagenes":["imagenes/producto-065.jpg"]},{"categoria":"refacciones","nombre":"Discos de freno para CrossFox / Vento / Polo","descripcion":"Discos de freno compatibles con Volkswagen CrossFox, Vento y Polo.","precio":"$500","estado":"USADO","imagen":"imagenes/producto-066.jpg","imagenes":["imagenes/producto-067.jpg","imagenes/producto-068.jpg"]},{"categoria":"refacciones","nombre":"Balatas de freno Brembo para CrossFox / Vento / Polo","descripcion":"Balatas de freno Brembo para Volkswagen CrossFox, Vento y Polo.","precio":"$300","estado":"USADO","imagen":"imagenes/producto-069.jpg","imagenes":["imagenes/producto-070.jpg"]},{"categoria":"refacciones","nombre":"Filtro de aceite","descripcion":"Filtro de aceite; aplicación específica no identificada.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-071.jpg","imagenes":["imagenes/producto-072.jpg"]},{"categoria":"refacciones","nombre":"Soporte para Volkswagen CrossFox 2013","descripcion":"Soporte para Volkswagen CrossFox 2013.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-073.jpg","imagenes":["imagenes/producto-074.jpg"]},{"categoria":"refacciones","nombre":"Base de termostato para motor 1.6 Polo / Vento","descripcion":"Base de termostato para motor 1.6, compatible con Volkswagen Polo y Vento.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-075.jpg","imagenes":["imagenes/producto-076.jpg"]},{"categoria":"refacciones","nombre":"Luz de placa para Volkswagen Polo 2013","descripcion":"Luz de placa para Volkswagen Polo 2013.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-077.jpg","imagenes":["imagenes/producto-078.jpg"]},{"categoria":"refacciones","nombre":"Conducto / manguera de turbo para Polo 2013 1.2 TSI","descripcion":"Conducto o manguera del sistema de turbo para Volkswagen Polo 2013 con motor 1.2 TSI.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-079.jpg","imagenes":["imagenes/producto-080.jpg","imagenes/producto-081.jpg"]},{"categoria":"refacciones","nombre":"Terminal / cable de batería para Vento / Polo","descripcion":"Terminal / cable de batería para Volkswagen Vento y Polo.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-082.jpg","imagenes":["imagenes/producto-083.jpg"]},{"categoria":"refacciones","nombre":"Tubo plástico de refrigerante para motor 1.6 Polo / Vento","descripcion":"Tubo plástico del sistema de refrigerante para motor 1.6, Volkswagen Polo y Vento.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-084.jpg","imagenes":["imagenes/producto-085.jpg"]},{"categoria":"refacciones","nombre":"Catalizador genérico","descripcion":"Catalizador genérico usado. Se vende tal como se muestra en las fotografías.","precio":"$400","estado":"USADO","imagen":"imagenes/producto-086.jpg","imagenes":["imagenes/producto-087.jpg","imagenes/producto-088.jpg"]},{"categoria":"refacciones","nombre":"Plafón / luz interior de techo para Polo 2013","descripcion":"Plafón interior de techo con luces y controles para Volkswagen Polo 2013.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-089.jpg","imagenes":["imagenes/producto-090.jpg","imagenes/producto-091.jpg"]},{"categoria":"refacciones","nombre":"Cubre tablero para Volkswagen CrossFox","descripcion":"Cubre tablero para Volkswagen CrossFox.","precio":"$200","estado":"USADO","imagen":"imagenes/producto-092.jpg","imagenes":["imagenes/producto-093.jpg","imagenes/producto-094.jpg"]},{"categoria":"refacciones","nombre":"Downpipe para motor 1.2 TSI","descripcion":"Downpipe para motor 1.2 TSI. Se vende tal como se muestra en las fotografías.","precio":"$600","estado":"USADO","imagen":"imagenes/producto-095.jpg","imagenes":["imagenes/producto-096.jpg","imagenes/producto-097.jpg"]},{"categoria":"peluches","nombre":"Lote de 3 gatos largos de peluche","descripcion":"Tres gatos largos de peluche. Se venden juntos.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-098.jpg","imagenes":["imagenes/producto-099.jpg","imagenes/producto-100.jpg"]},{"categoria":"peluches","nombre":"Sillón / cojín de peluche Princesa Elsa","descripcion":"Sillón o cojín infantil de peluche con diseño de Princesa Elsa.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-101.jpg","imagenes":["imagenes/producto-102.jpg"]},{"categoria":"peluches","nombre":"Peluche gato largo naranja","descripcion":"Peluche largo de gato en color naranja y blanco.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-103.jpg","imagenes":["imagenes/producto-104.jpg"]},{"categoria":"peluches","nombre":"Peluche oso blanco con corazón","descripcion":"Peluche pequeño de oso blanco con corazón rojo.","precio":"$70","estado":"USADO","imagen":"imagenes/producto-105.jpg","imagenes":["imagenes/producto-106.jpg"]},{"categoria":"peluches","nombre":"Peluche leopardo de ojos grandes","descripcion":"Peluche pequeño de leopardo con ojos grandes.","precio":"$70","estado":"USADO","imagen":"imagenes/producto-107.jpg","imagenes":["imagenes/producto-108.jpg"]},{"categoria":"peluches","nombre":"Peluche Chloe – La vida secreta de tus mascotas","descripcion":"Peluche de Chloe, la gata gris de La vida secreta de tus mascotas.","precio":"$70","estado":"USADO","imagen":"imagenes/producto-109.jpg","imagenes":["imagenes/producto-110.jpg"]},{"categoria":"peluches","nombre":"Peluche Kuromi morada","descripcion":"Peluche pequeño de Kuromi en tonos morado y blanco.","precio":"$70","estado":"USADO","imagen":"imagenes/producto-111.jpg","imagenes":["imagenes/producto-112.jpg","imagenes/producto-113.jpg"]},{"categoria":"peluches","nombre":"Peluche gato rosa de ojos grandes","descripcion":"Peluche de gato rosa con ojos grandes y detalles brillantes.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-114.jpg","imagenes":["imagenes/producto-115.jpg","imagenes/producto-116.jpg"]},{"categoria":"peluches","nombre":"Cojín de peluche dona rosa","descripcion":"Cojín de peluche con diseño de dona rosa.","precio":"$70","estado":"USADO","imagen":"imagenes/producto-117.jpg","imagenes":["imagenes/producto-118.jpg"]},{"categoria":"peluches","nombre":"Peluche pequeño tipo comida","descripcion":"Peluche pequeño con diseño de comida.","precio":"$70","estado":"USADO","imagen":"imagenes/producto-119.jpg","imagenes":["imagenes/producto-120.jpg"]},{"categoria":"peluches","nombre":"Cojín emoji mandando beso","descripcion":"Cojín de peluche tipo emoji mandando un beso con corazón.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-121.jpg","imagenes":["imagenes/producto-122.jpg","imagenes/producto-123.jpg"]},{"categoria":"peluches","nombre":"Peluche caballito rosa","descripcion":"Peluche pequeño de caballito rosa con melena de colores.","precio":"$70","estado":"USADO","imagen":"imagenes/producto-124.jpg","imagenes":["imagenes/producto-125.jpg","imagenes/producto-126.jpg"]},{"categoria":"peluches","nombre":"Peluche Snoopy","descripcion":"Peluche de Snoopy con gorro y ropa gris.","precio":"$100","estado":"USADO","imagen":"imagenes/producto-127.jpg","imagenes":["imagenes/producto-128.jpg"]},{"categoria":"peluches","nombre":"Peluche Stay Puft – Ghostbusters","descripcion":"Peluche pequeño de Stay Puft de Ghostbusters.","precio":"$70","estado":"USADO","imagen":"imagenes/producto-129.jpg","imagenes":["imagenes/producto-130.jpg"]}];
+
+
+/* ==========================================
+   CATEGORIAS
+========================================== */
+
+let categoriaActual="todos";
+
+const nombresCategorias={
+
+    todos:"Todos los productos",
+
+    tmnt:"Tortugas Ninja",
+
+    autos:"Autos a escala",
+
+    gorras:"Gorras",
+
+    coleccionables:"Coleccionables",
+    juguetes:"Juguetes",
+    peluches:"Peluches",
+
+    refacciones:"Refacciones",
+    electronica:"Electrónica",
+    varios:"Varios"
+
+};
+
+
+/* ==========================================
+   CREAR PRODUCTO
+========================================== */
+
+function crearTarjeta(producto){
+
+    const tarjeta=document.createElement("div");
+
+    tarjeta.className="product";
+
+    tarjeta.dataset.category=producto.categoria;
+
+    tarjeta.dataset.scale=producto.escala || "";
+
+    tarjeta.dataset.name=(
+        producto.nombre+" "+
+        producto.descripcion
+    ).toLowerCase();
+
+
+    const claseEstado=
+        producto.estado==="USADO"
+        ? "badge used"
+        : "badge";
+
+
+    tarjeta.innerHTML=`
+
+        <div class="product-image-wrap">
+            <img
+                class="product-image"
+                src="${producto.imagen}"
+                style="${((producto.rotaciones && producto.rotaciones.length) ? producto.rotaciones[0] : producto.rotacion) ? `transform:rotate(${(producto.rotaciones && producto.rotaciones.length) ? producto.rotaciones[0] : producto.rotacion}deg);` : ``}"
+                alt="${producto.nombre}"
+                onerror="this.style.opacity='.25'"
+                onclick="abrirGaleriaProducto(${productos.indexOf(producto)})"
+            >
+            ${(producto.imagenes && producto.imagenes.length>1) ? `<span class="photo-count">📷 ${producto.imagenes.length}</span>` : ""}
+        </div>
+
+        <div class="product-info">
+
+            <span class="${claseEstado}">
+                ${producto.estado}
+            </span>
+
+            <h3>
+                ${producto.nombre}
+            </h3>
+
+            <p>
+                ${producto.descripcion}
+            </p>
+
+            <div class="price">
+                ${producto.precio}
+            </div>
+
+            <button
+                onclick="interesa('${producto.nombre} - ${producto.precio}')">
+
+                ME INTERESA
+
+            </button>
+
+        </div>
+
+    `;
+
+    return tarjeta;
+
+}
+
+
+/* ==========================================
+   CREAR TODOS LOS PRODUCTOS
+========================================== */
+
+function crearProductos(){
+
+    const grid=
+        document.getElementById("productGrid");
+
+    grid.innerHTML="";
+
+
+    /* PRODUCTOS QUE NO SON AUTOS */
+
+    productos
+        .filter(producto=>producto.categoria!=="autos")
+        .forEach(function(producto){
+
+            grid.appendChild(
+                crearTarjeta(producto)
+            );
+
+        });
+
+
+    /* ======================================
+       TITULO AUTOS 1:32
+    ====================================== */
+
+    const titulo132=
+        document.createElement("div");
+
+    titulo132.className=
+        "scale-divider scale-132";
+
+    titulo132.innerHTML=`
+
+        <strong>
+            AUTOS ESCALA 1:32
+        </strong>
+
+        <span>
+            Modelos disponibles escala 1:32
+        </span>
+
+    `;
+
+    grid.appendChild(titulo132);
+
+
+    productos
+        .filter(
+            producto=>
+                producto.categoria==="autos"
+                &&
+                producto.escala==="1:32"
+        )
+        .forEach(function(producto){
+
+            grid.appendChild(
+                crearTarjeta(producto)
+            );
+
+        });
+
+
+    /* ======================================
+       TITULO AUTOS 1:24
+    ====================================== */
+
+    const titulo124=
+        document.createElement("div");
+
+    titulo124.className=
+        "scale-divider scale-124";
+
+    titulo124.innerHTML=`
+
+        <strong>
+            AUTOS ESCALA 1:24
+        </strong>
+
+        <span>
+            Modelos disponibles escala 1:24
+        </span>
+
+    `;
+
+    grid.appendChild(titulo124);
+
+
+    productos
+        .filter(
+            producto=>
+                producto.categoria==="autos"
+                &&
+                producto.escala==="1:24"
+        )
+        .forEach(function(producto){
+
+            grid.appendChild(
+                crearTarjeta(producto)
+            );
+
+        });
+
+}
+
+
+/* ==========================================
+   FILTRAR CATEGORIA
+========================================== */
+
+function filtrarCategoria(categoria){
+
+    categoriaActual=categoria;
+
+    // Al cambiar de categoría limpiamos la búsqueda para mostrar todos sus productos.
+    const buscador=document.getElementById("searchInput");
+    if(buscador){ buscador.value=""; }
+
+    document
+        .getElementById("filterName")
+        .textContent=
+        nombresCategorias[categoria];
+
+    actualizarBotonesCategoria();
+
+    aplicarFiltros();
+
+    document
+        .getElementById("productos")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* ==========================================
+   BOTONES ACTIVOS
+========================================== */
+
+function actualizarBotonesCategoria(){
+
+    document
+        .querySelectorAll("[data-filter]")
+        .forEach(function(boton){
+
+            boton.classList.remove("active");
+
+            if(
+                boton.dataset.filter===
+                categoriaActual
+            ){
+
+                boton.classList.add("active");
+
+            }
+
+        });
+
+}
+
+
+/* ==========================================
+   MOSTRAR TODOS
+========================================== */
+
+function mostrarTodos(){
+
+    categoriaActual="todos";
+
+    document
+        .getElementById("searchInput")
+        .value="";
+
+    document
+        .getElementById("filterName")
+        .textContent=
+        "Todos los productos";
+
+    actualizarBotonesCategoria();
+
+    aplicarFiltros();
+
+    document
+        .getElementById("productos")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* ==========================================
+   APLICAR FILTROS
+========================================== */
+
+function aplicarFiltros(){
+
+    const texto=
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const tarjetas=
+        document.querySelectorAll(".product");
+
+
+    let visibles=0;
+
+    let autos132Visibles=0;
+
+    let autos124Visibles=0;
+
+
+    tarjetas.forEach(function(tarjeta){
+
+        const nombre=
+            tarjeta.dataset.name;
+
+        const categoria=
+            tarjeta.dataset.category;
+
+        const escala=
+            tarjeta.dataset.scale;
+
+
+        const coincideCategoria=
+            categoriaActual==="todos"
+            ||
+            categoria===categoriaActual;
+
+
+        const coincideTexto=
+            nombre.includes(texto);
+
+
+        if(
+            coincideCategoria
+            &&
+            coincideTexto
+        ){
+
+            tarjeta.style.display="block";
+
+            visibles++;
+
+
+            if(
+                categoria==="autos"
+                &&
+                escala==="1:32"
+            ){
+
+                autos132Visibles++;
+
+            }
+
+
+            if(
+                categoria==="autos"
+                &&
+                escala==="1:24"
+            ){
+
+                autos124Visibles++;
+
+            }
+
+        }
+
+        else{
+
+            tarjeta.style.display="none";
+
+        }
+
+    });
+
+
+    /* ======================================
+       MOSTRAR / OCULTAR TITULO 1:32
+    ====================================== */
+
+    const titulo132=
+        document.querySelector(".scale-132");
+
+    const titulo124=
+        document.querySelector(".scale-124");
+
+
+    if(autos132Visibles>0){
+
+        titulo132.style.display="flex";
+
+    }
+
+    else{
+
+        titulo132.style.display="none";
+
+    }
+
+
+    /* ======================================
+       MOSTRAR / OCULTAR TITULO 1:24
+    ====================================== */
+
+    if(autos124Visibles>0){
+
+        titulo124.style.display="flex";
+
+    }
+
+    else{
+
+        titulo124.style.display="none";
+
+    }
+
+
+    document
+        .getElementById("noProducts")
+        .style.display=
+        visibles===0
+        ? "block"
+        : "none";
+
+}
+
+
+/* ==========================================
+   BUSCAR
+========================================== */
+
+function buscar(){
+
+    aplicarFiltros();
+
+    document
+        .getElementById("productos")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* ==========================================
+   BUSCADOR TIEMPO REAL
+========================================== */
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "input",
+        aplicarFiltros
+    );
+
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "keyup",
+        function(event){
+
+            if(event.key==="Enter"){
+
+                buscar();
+
+            }
+
+        }
+    );
+
+
+
+/* ==========================================
+   GALERIA DE FOTOS
+========================================== */
+let galeriaFotos=[];
+let galeriaIndice=0;
+let galeriaNombre="";
+let galeriaRotacion=0;
+let galeriaRotaciones=[];
+
+function abrirGaleriaProducto(indiceProducto){
+    const producto=productos[indiceProducto];
+    galeriaFotos=(producto.imagenes && producto.imagenes.length) ? producto.imagenes : [producto.imagen];
+    galeriaIndice=0;
+    galeriaNombre=producto.nombre;
+    galeriaRotacion=producto.rotacion || 0;
+    galeriaRotaciones=(producto.rotaciones && producto.rotaciones.length) ? producto.rotaciones : [];
+    actualizarGaleria();
+    document.getElementById("galleryModal").classList.add("open");
+    document.body.style.overflow="hidden";
+}
+
+function actualizarGaleria(){
+    const img=document.getElementById("galleryMain");
+    img.src=galeriaFotos[galeriaIndice];
+    img.alt=galeriaNombre;
+    const rot=(galeriaRotaciones.length ? (galeriaRotaciones[galeriaIndice] || 0) : galeriaRotacion);
+    img.style.transform=rot ? `rotate(${rot}deg)` : "";
+    document.getElementById("galleryCaption").textContent=galeriaNombre;
+    document.getElementById("galleryDots").textContent=`Foto ${galeriaIndice+1} de ${galeriaFotos.length}`;
+    const mostrarFlechas=galeriaFotos.length>1;
+    document.getElementById("galleryPrev").style.display=mostrarFlechas ? "flex" : "none";
+    document.getElementById("galleryNext").style.display=mostrarFlechas ? "flex" : "none";
+}
+
+function cambiarFoto(direccion){
+    if(galeriaFotos.length<2) return;
+    galeriaIndice=(galeriaIndice+direccion+galeriaFotos.length)%galeriaFotos.length;
+    actualizarGaleria();
+}
+
+function cerrarGaleria(){
+    document.getElementById("galleryModal").classList.remove("open");
+    document.body.style.overflow="";
+}
+
+function cerrarGaleriaFondo(event){
+    if(event.target.id==="galleryModal") cerrarGaleria();
+}
+
+document.addEventListener("keydown",function(event){
+    const modal=document.getElementById("galleryModal");
+    if(!modal.classList.contains("open")) return;
+    if(event.key==="Escape") cerrarGaleria();
+    if(event.key==="ArrowLeft") cambiarFoto(-1);
+    if(event.key==="ArrowRight") cambiarFoto(1);
+});
+
+/* ==========================================
+   WHATSAPP PRODUCTO
+========================================== */
+
+function interesa(producto){
+
+    const mensaje=
+        "Hola, vi este producto en Lando’s Garage y me interesa: "
+        +
+        producto
+        +
+        ". ¿Sigue disponible?";
+
+
+    const url=
+        "https://wa.me/"
+        +
+        telefonoWhatsApp
+        +
+        "?text="
+        +
+        encodeURIComponent(mensaje);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* ==========================================
+   WHATSAPP GENERAL
+========================================== */
+
+function contactarWhatsApp(){
+
+    const mensaje=
+        "Hola, vi Lando’s Garage y quisiera información sobre tus productos.";
+
+
+    const url=
+        "https://wa.me/"
+        +
+        telefonoWhatsApp
+        +
+        "?text="
+        +
+        encodeURIComponent(mensaje);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+
+/* PORTADA · MINI PRESENTACIÓN SIN INDICADORES */
+const heroSlides=Array.from(document.querySelectorAll(".hero-slide"));
+let heroIndice=0,heroTimer=null;
+function mostrarHeroSlide(n){if(!heroSlides.length)return;heroIndice=(n+heroSlides.length)%heroSlides.length;heroSlides.forEach((slide,i)=>slide.classList.toggle("active",i===heroIndice));}
+function iniciarHero(){if(window.matchMedia("(prefers-reduced-motion: reduce)").matches||heroSlides.length<2)return;clearInterval(heroTimer);heroTimer=setInterval(()=>mostrarHeroSlide(heroIndice+1),3400);}
+mostrarHeroSlide(0);iniciarHero();
+window.addEventListener("scroll",()=>{const h=document.querySelector("header");if(h)h.classList.toggle("compact",window.scrollY>45)},{passive:true});
+
+
+/* ==========================================
+   CALIFICACIONES Y COMENTARIOS
+========================================== */
+(function(){
+ const picker=document.getElementById("ratingPicker"), rating=document.getElementById("reviewRating"), form=document.getElementById("reviewForm"), msg=document.getElementById("reviewMessage");
+ if(!picker||!rating||!form)return;
+ const stars=Array.from(picker.querySelectorAll("button"));
+ function pintar(n){rating.value=String(n);stars.forEach((s,i)=>s.classList.toggle("selected",i<n));}
+ stars.forEach(star=>star.addEventListener("click",()=>pintar(Number(star.dataset.rating))));
+ pintar(5);
+ form.addEventListener("submit",function(e){e.preventDefault();msg.style.display="block";form.reset();pintar(5);setTimeout(()=>{msg.style.display="none"},5000);});
+})();
+
+/* ==========================================
+   INICIAR
+========================================== */
+
+crearProductos();
+
+aplicarFiltros();
+
+</script>
+
+</body>
+
+</html>

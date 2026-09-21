@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anfmarket.github.io/anfmarket/sitemap.xml

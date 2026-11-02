@@ -2823,6 +2823,30 @@ const nombresCategorias={
 };
 
 
+/* Manejo de imagen no disponible: intenta otras fotos del mismo producto
+   antes de mostrar un aviso. No reemplaza archivos faltantes en GitHub. */
+function manejarErrorImagen(img){
+    const tarjeta=img.closest(".product");
+    const nombre=tarjeta?.querySelector("h3")?.textContent?.trim();
+    const producto=productos.find(p=>p.nombre===nombre);
+    const opciones=[...new Set([producto?.imagen,...(producto?.imagenes||[])].filter(Boolean))];
+    const actual=decodeURIComponent(new URL(img.src,document.baseURI).pathname);
+    const siguiente=opciones.find(ruta=>!actual.endsWith("/"+ruta) && !(img.dataset.fallidos||"").split("|").includes(ruta));
+    if(siguiente){
+        img.dataset.fallidos=(img.dataset.fallidos||"")+"|"+siguiente;
+        img.src=siguiente;
+        return;
+    }
+    img.onerror=null;
+    img.removeAttribute("onclick");
+    img.removeAttribute("src");
+    img.alt="Fotografía no disponible: "+(nombre||"producto");
+    img.style.opacity="1";
+    img.style.objectFit="contain";
+    img.style.background="#e9edf2";
+    img.title="Fotografía pendiente de revisar en GitHub";
+}
+
 /* ==========================================
    CREAR PRODUCTO
 ========================================== */
@@ -2857,7 +2881,7 @@ function crearTarjeta(producto){
                 src="${producto.imagen}"
                 style="${((producto.rotaciones && producto.rotaciones.length) ? producto.rotaciones[0] : producto.rotacion) ? `transform:rotate(${(producto.rotaciones && producto.rotaciones.length) ? producto.rotaciones[0] : producto.rotacion}deg);` : ``}"
                 alt="${producto.nombre}"
-                onerror="this.style.opacity='.25'"
+                onerror="manejarErrorImagen(this)"
                 onclick="abrirGaleriaProducto(${productos.indexOf(producto)})"
             >
             ${(producto.imagenes && producto.imagenes.length>1) ? `<span class="photo-count">📷 ${producto.imagenes.length}</span>` : ""}
@@ -2882,7 +2906,7 @@ function crearTarjeta(producto){
             </div>
 
             <button
-                onclick="interesa('${producto.nombre} - ${producto.precio}')">
+                class="product-interest">
 
                 ME INTERESA
 
@@ -2891,6 +2915,9 @@ function crearTarjeta(producto){
         </div>
 
     `;
+
+    const botonInteres=tarjeta.querySelector(".product-interest");
+    if(botonInteres) botonInteres.addEventListener("click",()=>interesa(producto.nombre+" - "+producto.precio));
 
     return tarjeta;
 
